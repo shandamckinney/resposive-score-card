@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center;  }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    h1, h2 {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 700;
+    }
+    p {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 500;
+      letter-spacing: .35px;
+      font-size: 16px;
+    }
+    body {
+      font-family: 'Hanken Grotesk', sans-serif;
+      padding: 5rem 16rem; 
+      background-color: white;
+      @media (max-width: 1080px) {
+        padding: 5rem 8rem; 
+      }
+      @media (max-width: 990px) {
+        padding: 2rem 4rem; 
+      }
+      @media (max-width: 525px) {
+        padding: 1rem; 
+      }
+  }
+
+    #card {
+      background-color: white; display: flex; border-radius: 20px;box-shadow: 20px 17px 20px 0px  hsl(241, 100%, 89%, .25);
+      position: relative;
+      @media (max-width: 760px) {
+        display: block;
+      }
+    }
+    #result-left {
+      position: relative;
+      width: 50%; border-radius: 20px; padding: 2rem; background-image: linear-gradient( hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+      @media (max-width: 1080px) {
+        width: 100%;
+        padding: 2rem 0rem; /* Adjusted padding */
+      }
+    }
+    #result-right {
+      width: 50%;padding: 2rem;
+      @media (max-width: 1080px) {
+        width: 100%;
+        padding: 2rem 0rem; /* Adjusted padding */
+      }
+    }
+    .summary-card {
+      display: flex; justify-content: space-between; padding: 0 1rem; margin-bottom: 1rem; border-radius: 10px;
+      @media (max-width: 1080px) {
+        padding: 0rem 1rem;
+      }
+    }
+
+    #summary-title {
+      margin-bottom: 1.5rem;
+      @media (max-width: 1080px) {
+        padding-left: 1rem;
+      }
+      @media (max-width: 760px) {
+        text-align: center;
+      }
+    }
+
+    #all-summary-cards {
+      @media (max-width: 1080px) {
+        padding: 1rem;
+      }
+    }
+    #reaction {
+      background-color: hsla(0, 100%, 67%, 0.10);
+    }
+    #reaction:hover {
+      background-color: hsla(0, 100%, 67%, .25);
+    }
+    #memory {
+      background-color: hsl(39, 100%, 56%, 0.10);
+    }
+    #memory:hover {
+      background-color: hsl(39, 100%, 56%, 0.25);
+    }
+    #verbal {
+      background-color: hsl(166, 100%, 37%, 0.10);
+    }
+    #verbal:hover {
+      background-color: hsl(166, 100%, 37%, 0.25);
+    }
+    #visual {
+      background-color: hsl(234, 85%, 45%, 0.10);
+    }
+    #visual:hover {
+      background-color: hsl(234, 85%, 45%, 0.25);
+    }
+    #button-wrapper {
+      @media (max-width: 1080px) {
+       padding: 0rem 1rem;
+      }
+    }
+    #continue-btn {
+      background-color: hsl(224, 30%, 27%); width: 100%; border: 0; border-radius: 20px; padding: .75rem; color: white; margin-top: 1.75rem;
+    }
+    #continue-btn:hover {
+      background-color: hsl(224, 30%, 27%, .80);
+    }
+  </style>
+  <script>
+    let data = [
+    {
+      "category": "Reaction",
+      "score": 80,
+      "icon": "./assets/images/icon-reaction.svg"
+    },
+    {
+      "category": "Memory",
+      "score": 92,
+      "icon": "./assets/images/icon-memory.svg"
+    },
+    {
+      "category": "Verbal",
+      "score": 61,
+      "icon": "./assets/images/icon-verbal.svg"
+    },
+    {
+      "category": "Visual",
+      "score": 72,
+      "icon": "./assets/images/icon-visual.svg"
+    }
+  ]
+
+  window.onload = function(){
+    document.getElementById('reaction-title').innerHTML = data[0].category;
+    document.getElementById('reaction-img').src = data[0].icon;
+    document.getElementById('reaction-score').innerHTML = data[0].score;
+
+    document.getElementById('memory-title').innerHTML = data[1].category;
+    document.getElementById('memory-img').src = data[1].icon;
+    document.getElementById('memory-score').innerHTML = data[1].score;
+
+    document.getElementById('verbal-title').innerHTML = data[2].category;
+    document.getElementById('verbal-img').src = data[2].icon;
+    document.getElementById('verbal-score').innerHTML = data[2].score;
+
+    document.getElementById('visual-title').innerHTML = data[3].category;
+    document.getElementById('visual-img').src = data[3].icon;
+    document.getElementById('visual-score').innerHTML = data[3].score;
+};
+  console.log('data', data)
+  </script>
+</head>
+<body>
+  <div id="card">
+ <div id="result-left">
+  <div style="text-align: center">
+    <p style="color: hsl(0, 0%, 80%); font-size: 1.5rem">Your Result</p>
+    <div style="background-image: linear-gradient( hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0)); border-radius: 50%; height: 10rem; width: 10rem; margin-right: auto; margin-left: auto; display: flex; align-items: center; justify-content: center;">
+      <div>
+        <h1 style="color: white; font-size: 4rem; margin: 0;">76</h1>
+        <p style="color: hsl(0, 0%, 80%); margin: -.5rem 0rem 0rem 0rem">of 100</p>
+      </div>
+    </div>
+   
+     <h2 style="color: white; margin-top: 1.5rem">Great</h2>
+     <p style="padding: 0 2rem;color: hsl(0, 0%, 80%)">You scored higher than 65% of the people who have taken these tests.</p>
+  </div>
+ </div>
+ <div id="result-right">
+  <h2 id="summary-title">Summary</h2>
+  <!-- Score Sections -->
+   <div id="all-summary-cards">
+    <div id="reaction" class="summary-card">
+      <div style="display: flex">
+        <img alt="Lightning bolt symbol" id="reaction-img" style="padding-right: 1rem">
+        <p style="color: hsla(0, 100%, 67%)" id="reaction-title"></p>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <p style="color: hsl(224, 30%, 27%); margin: 0 .5rem 0 0 " id="reaction-score"> </p>
+        <span style="color: hsl(241, 11%, 70%)"> / 100</span>
+      </div>
+    </div>
+    <div id="memory" class="summary-card">
+      <div style="display: flex">
+        <img  id="memory-img" alt="Brain icon" style="padding-right: 1rem">
+        <p style="color: hsl(39, 100%, 56%)" id="memory-title"></p>
+      </div>
+      <div style="display: flex; align-items: center;">
+      <p style="color: hsl(224, 30%, 27%); margin: 0 .5rem 0 0 " id="memory-score"> </p>
+      <span style="color: hsl(241, 11%, 70%)"> / 100</span>
+    </div>
+    </div>
+    <div id="verbal" class="summary-card">
+      <div style="display: flex">
+        <img  id="verbal-img" alt="messaging symbol" style="padding-right: 1rem">
+        <p style="color: hsl(166, 100%, 37%)" id="verbal-title"></p>
+      </div>
+      <div style="display: flex; align-items: center;">
+      <p style="color: hsl(224, 30%, 27%); margin: 0 .5rem 0 0 " id="verbal-score"> </p>
+      <span style="color: hsl(241, 11%, 70%)"> / 100</span>
+    </div>
+    </div>
+    <div id="visual" class="summary-card">
+      <div style="display: flex">
+        <img  id="visual-img" alt="Eye symbol" style="padding-right: 1rem">
+        <p style="color: hsl(234, 85%, 45%)" id="visual-title">Visual</p>
+      </div>
+      <div style="display: flex; align-items: center;">
+      <p style="color: hsl(224, 30%, 27%); margin: 0 .5rem 0 0 " id="visual-score"> </p>
+      <span style="color: hsl(241, 11%, 70%)"> / 100</span>
+    </div>
+    </div>
+   </div>
+   <div id="button-wrapper">
+     <button id="continue-btn"><p style="margin: 0">Continue</p></button>
+   </div>
+ </div>
+   
+</div>
+</body>
+</html>
